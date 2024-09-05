@@ -11,7 +11,7 @@ body {
     align-items: center;
 
     font-family: sans-serif;
-    background-color: powderblue;
+    background-color: #F5F4EF;
 }
 
 /* Book */
@@ -34,7 +34,9 @@ body {
 
 .front,
 .back {
-    background-color: white;
+    background-image: url('MAGG.png'); /* Replace with the path to your image */
+    background-size: cover; /* Ensures the image covers the entire element */
+    background-position: center; /* Centers the image */
     position: absolute;
     width: 100%;
     height: 100%;
@@ -47,7 +49,7 @@ body {
 .front {
     z-index: 1;
     backface-visibility: hidden;
-    border-left: 3px solid powderblue;
+    border-left: 3px solid #F5F4EF;
 }
 
 .back {
@@ -76,7 +78,7 @@ body {
 /* Controller Buttons */
 button {
     border: none;
-    background-color: transparent;
+    background-color: #F5F4EF(162, 38, 38);
     cursor: pointer;
     margin: 10px;
     transition: transform 0.5s;
