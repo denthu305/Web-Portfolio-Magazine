@@ -34,7 +34,7 @@ body {
 
 .front,
 .back {
-    background-image: url('MAGG.png'); /* Replace with the path to your image */
+    background-image: url('COVER.png'); /* Replace with the path to your image */
     background-size: cover; /* Ensures the image covers the entire element */
     background-position: center; /* Centers the image */
     position: absolute;
@@ -51,6 +51,9 @@ body {
     backface-visibility: hidden;
     border-left: 3px solid #F5F4EF;
 }
+
+
+
 
 .back {
     z-index: 0;
