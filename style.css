@@ -11,7 +11,7 @@ body {
     align-items: center;
 
     font-family: sans-serif;
-    background-color: #F5F4EF;
+    background-color: #0d1030;
 }
 
 /* Book */
@@ -34,7 +34,7 @@ body {
 
 .front,
 .back {
-    background-image: url('COVER.png'); /* Replace with the path to your image */
+    background-image: url('COVER2.png'); /* Replace with the path to your image */
     background-size: cover; /* Ensures the image covers the entire element */
     background-position: center; /* Centers the image */
     position: absolute;
@@ -49,7 +49,7 @@ body {
 .front {
     z-index: 1;
     backface-visibility: hidden;
-    border-left: 3px solid #F5F4EF;
+    border-left: 3px solid #0d1030;
 }
 
 
