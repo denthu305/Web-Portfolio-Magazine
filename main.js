@@ -81,3 +81,29 @@ function goPrevPage() {
         currentLocation--;
     }
 }
+
+// Reference to "ABOUT ME" button
+const aboutMeBtn = document.querySelector("#about-me-btn");
+
+aboutMeBtn.addEventListener("click", goToAboutMePage);
+
+
+function goToAboutMePage(event) {
+    event.preventDefault(); // Prevent default anchor behavior
+
+    // Set current location to 2 and flip pages
+    currentLocation = 2;
+
+    openBook();
+    paper1.classList.add("flipped");
+    paper1.style.zIndex = 1;
+    
+    paper2.classList.add("flipped");
+    paper2.style.zIndex = 2;
+    
+
+    //closeBook(false);
+}
+
+
+

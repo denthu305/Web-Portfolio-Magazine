@@ -11,7 +11,7 @@ body {
     align-items: center;
 
     font-family: sans-serif;
-    background-image: url('bg.png');
+    background-color: #0d1030;
     background-size: cover;
 }
 
@@ -88,6 +88,7 @@ button {
     cursor: pointer;
     margin: 10px;
     transition: transform 0.5s;
+    z-index: 1;
 }
 
 button:focus {
@@ -115,3 +116,17 @@ i {
 #p3 {
     z-index: 1;
 }
+
+.background-circle {
+    position: fixed; /* Position it absolutely within the book container */
+    width: 600px; /* Set the diameter of the circle */
+    height: 600px; /* Set the diameter of the circle */
+    background-image: url(tcup.png); /* Set the background color (red with transparency) */
+    background-size: cover;
+    border-radius: 50%; /* Make it a circle */
+    top: 50%; /* Center it vertically within the book */
+    left: 50%; /* Center it horizontally within the book */
+    transform: translate(-50%, -50%); /* Adjust to truly center it */
+    z-index: 0; /* Send it behind other content */
+}
+
