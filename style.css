@@ -119,8 +119,8 @@ i {
 
 .background-circle {
     position: fixed; /* Position it absolutely within the book container */
-    width: 600px; /* Set the diameter of the circle */
-    height: 600px; /* Set the diameter of the circle */
+    width: 650px; /* Set the diameter of the circle */
+    height: 650px; /* Set the diameter of the circle */
     background-image: url(tcup.png); /* Set the background color (red with transparency) */
     background-size: cover;
     border-radius: 50%; /* Make it a circle */

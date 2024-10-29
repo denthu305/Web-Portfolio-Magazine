@@ -96,10 +96,10 @@ function goToAboutMePage(event) {
 
     openBook();
     paper1.classList.add("flipped");
-    paper1.style.zIndex = 1;
+    paper1.style.zIndex = 2;
     
     paper2.classList.add("flipped");
-    paper2.style.zIndex = 2;
+    paper2.style.zIndex = 3;
     
 
     //closeBook(false);
