@@ -149,4 +149,66 @@ function backToToc(event) {
 }
 
 
+// Function to open the book and flip through pages quickly
+function openBookAndFlip() {
+    // Step 1: Open the book (make it appear as if the cover page is opened)
+    book.style.transform = "translateX(50%)";
+    prevBtn.style.transform = "translateX(-180px)";
+    nextBtn.style.transform = "translateX(180px)";
+    
+    // Step 2: Wait for a moment before flipping through pages
+    setTimeout(flipThroughPagesQuickly, 500);  // 500ms delay to let the book "open"
+}
 
+// Function to flip through all pages quickly
+function flipThroughPagesQuickly() {
+    let currentPage = 1; // Start at the first page
+    let totalPages = 7;  // Total number of pages (adjust as necessary)
+    let flipInterval = 100; // Time interval in milliseconds between each flip (adjust for speed)
+
+    function flipPage() {
+        if (currentPage <= totalPages) {
+            // Flip the current page
+            const currentPaper = document.querySelector(`#p${currentPage}`);
+            currentPaper.classList.add("flipped");
+            currentPaper.style.zIndex = currentPage;
+
+            currentPage++; // Move to the next page
+
+            // If there are more pages to flip, call the function again after a delay
+            setTimeout(flipPage, flipInterval);
+        } else {
+            // Once all pages have been flipped, close the book and return to the front cover
+            closeBookAndReturnToCover();
+        }
+    }
+
+    // Start flipping pages
+    flipPage();
+}
+
+// Function to close the book and return to the front cover
+function closeBookAndReturnToCover() {
+    // Close the book (you can adjust to false to keep it in the "open" position, based on your needs)
+    book.style.transform = "translateX(0%)";
+    
+    // Reset the page flips (optional, if you want to reset all pages)
+    resetPages();
+
+    prevBtn.style.transform = "translateX(0px)";
+    nextBtn.style.transform = "translateX(0px)";
+}
+
+// Function to reset all pages (remove "flipped" class and reset zIndex)
+function resetPages() {
+    for (let i = 1; i <= 7; i++) {
+        const paper = document.querySelector(`#p${i}`);
+        paper.classList.remove("flipped");
+        paper.style.zIndex = 7 - i; // You can adjust the z-index reset logic if needed
+    }
+}
+
+// Trigger the opening of the book and then flipping when the page has fully loaded
+window.onload = function() {
+    openBookAndFlip();
+};
