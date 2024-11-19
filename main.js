@@ -9,7 +9,7 @@ const paper3 = document.querySelector("#p3");
 const paper4 = document.querySelector("#p4");
 const paper5 = document.querySelector("#p5");
 const paper6 = document.querySelector("#p6");
-const paper7 = document.querySelector("#p7");
+//const back6 = document.querySelector("#b6");
 
 // Event Listener
 prevBtn.addEventListener("click", goPrevPage);
@@ -17,7 +17,7 @@ nextBtn.addEventListener("click", goNextPage);
 
 // Business Logic
 let currentLocation = 1;
-let numOfPapers = 7;
+let numOfPapers = 6;
 let maxLocation = numOfPapers + 1;
 
 function openBook() {
@@ -65,12 +65,10 @@ function goNextPage() {
             case 6:
                 paper6.classList.add("flipped");
                 paper6.style.zIndex = 6;
-                break;
-            case 7:
-                paper7.classList.add("flipped");
-                paper7.style.zIndex = 7;
                 closeBook(false);
-                break;           
+                break;  
+            //case 7:
+                //openBook();
             
             default:
                 throw new Error("unkown state");
@@ -85,33 +83,28 @@ function goPrevPage() {
             case 2:
                 closeBook(true);
                 paper1.classList.remove("flipped");
-                paper1.style.zIndex = 7;
+                paper1.style.zIndex = 6;
                 break;
             case 3:
                 paper2.classList.remove("flipped");
-                paper2.style.zIndex = 6;
+                paper2.style.zIndex = 5;
                 break;
             case 4:
                 paper3.classList.remove("flipped");
-                paper3.style.zIndex = 5;
+                paper3.style.zIndex = 4;
                 break;
             case 5:
                 paper4.classList.remove("flipped");
-                paper4.style.zIndex = 4;
+                paper4.style.zIndex = 3;
                 break;
             case 6:
                 paper5.classList.remove("flipped");
-                paper5.style.zIndex = 3;
+                paper5.style.zIndex = 2;
                 break;
             case 7:
-                openBook()
+                openBook();
                 paper6.classList.remove("flipped");
-                paper6.style.zIndex = 2;
-                break;
-            case 8:
-                openBook()
-                paper7.classList.remove("flipped");
-                paper7.style.zIndex = 1;
+                paper6.style.zIndex = 1;
                 break;
             default:
                 throw new Error("unkown state");
@@ -128,10 +121,19 @@ aboutMeBtn.addEventListener("click", goToAboutMePage);
 
 
 function goToAboutMePage(event) {
-    paper2.classList.add("flipped");
-    paper2.style.zIndex = 2;
+    currentLocation = 2;
+    goNextPage();
+}
 
-    //closeBook(false);
+
+const projBtn = document.querySelector("#projects-btn");
+
+projBtn.addEventListener("click", goToProj);
+
+function goToProj(event) {
+    currentLocation = 2;
+    goNextPage()
+    goNextPage()
 }
 
 const backToc = document.querySelector("#back-to-toc");
@@ -139,14 +141,27 @@ const backToc = document.querySelector("#back-to-toc");
 backToc.addEventListener("click", backToToc);
 
 function backToToc(event) {
-    event.preventDefault();
-    goPrevPage()
-    
-
-    
-
-    //closeBook(false);
+// Check if we're already on page 2
+    if (currentLocation > 2) {
+        while (currentLocation > 2) {
+            goPrevPage(); // Move one page back until we reach page 2
+        }
+    }
 }
+
+const btt = document.querySelector("#btt-btn");
+
+btt.addEventListener("click", backToTents);
+
+function backToTents(event) {
+// Check if we're already on page 2
+    if (currentLocation > 2) {
+        while (currentLocation > 2) {
+           goPrevPage(); // Move one page back until we reach page 2
+       }
+    }
+}
+
 
 
 // Function to open the book and flip through pages quickly
@@ -163,7 +178,7 @@ function openBookAndFlip() {
 // Function to flip through all pages quickly
 function flipThroughPagesQuickly() {
     let currentPage = 1; // Start at the first page
-    let totalPages = 7;  // Total number of pages (adjust as necessary)
+    let totalPages = 6;  // Total number of pages (adjust as necessary)
     let flipInterval = 100; // Time interval in milliseconds between each flip (adjust for speed)
 
     function flipPage() {
@@ -201,10 +216,10 @@ function closeBookAndReturnToCover() {
 
 // Function to reset all pages (remove "flipped" class and reset zIndex)
 function resetPages() {
-    for (let i = 1; i <= 7; i++) {
+    for (let i = 1; i <= 6; i++) {
         const paper = document.querySelector(`#p${i}`);
         paper.classList.remove("flipped");
-        paper.style.zIndex = 7 - i; // You can adjust the z-index reset logic if needed
+        paper.style.zIndex = 6 - i; // You can adjust the z-index reset logic if needed
     }
 }
 

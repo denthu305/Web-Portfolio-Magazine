@@ -161,6 +161,7 @@ i {
     height: auto;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+    margin-top: -50px; /* Adjust the value to move it higher */
 }
 
 .center-image:hover {
@@ -172,6 +173,19 @@ i {
     background-color: #e3277e; /* Change to your desired hover background */
     transform: scale(1.1); /* Slightly enlarge the button */
 }
+
+#projects-btn:hover {
+    background-color: #e3277e; /* Change to your desired hover background */
+    transform: scale(1.1); /* Slightly enlarge the button */
+}
+
+#resume-btn:hover {
+    background-color: #e3277e; /* Change to your desired hover background */
+    transform: scale(1.1); /* Slightly enlarge the button */
+}
+
+
+
 #external-link-btn{
     width: 150px;           /* Adjust size as needed */
     height: auto;
@@ -191,9 +205,75 @@ i {
     height: auto;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+    margin-top: -70px; /* Adjust the value to move it higher */
 }
 .dcenter-image:hover {
     transform: scale(1.1);        /* Enlarge the image slightly */
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5); /* Add shadow effect */
 }
 
+.email-link {
+    font-size: 24px; /* Adjust the size of the email icon */
+    color: #0b0b0b; /* Color for the email icon */
+    text-decoration: none; /* Remove the underline */
+  }
+
+.phone-link {
+font-size: 24px; /* Adjust the size of the phone icon */
+color: #0b0b0b; /* Color for the phone icon */
+text-decoration: none; /* Remove the underline */
+}
+
+.email-link:hover {
+    color: #3312a1; /* Change color when hovering over the email icon */
+    transform: scale(1.1);
+}
+  
+  .phone-link:hover {
+    color: #3312a1; /* Change color when hovering over the phone icon */
+    transform: scale(1.1);
+}
+
+.btt-btn{
+    position: fixed; /* Fix it to the viewport */
+    /*bottom: 10px;        Adjust vertical position */
+    /* right: 10px;     Push it to the far-right corner */
+    text-decoration: none; /* Remove underline */
+    color: #333;     /* Default text color */
+    background-color: #f5f5f5; /* Light background for visibility */
+    padding: 10px 15px; /* Add some spacing for a button-like look */
+    border-radius: 10px; /* Rounded corners */
+    font-family: Arial, sans-serif; /* Optional font styling */
+    font-size: 11px; /* Adjust text size */
+    border: 1px solid #ddd; /* Subtle border */
+
+}
+
+.btt-btn:hover {
+    background-color: #333; /* Darker background on hover */
+    color: pink; /* White text on hover */
+    border-color: #333; /* Darker border on hover */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+}
+
+.backtoback{
+    position: fixed; /* Fix it to the viewport */
+    text-decoration: none; /* Remove underline */
+    color: #333;     /* Default text color */
+    background-color: #f5f5f5; /* Light background for visibility */
+    padding: 10px 15px; /* Add some spacing for a button-like look */
+    border-radius: 10px; /* Rounded corners */
+    font-family: Arial, sans-serif; /* Optional font styling */
+    font-size: 11px; /* Adjust text size */
+    border: 1px solid #ddd; /* Subtle border */
+
+
+}
+
+.backtoback:hover{
+    background-color: #333; /* Darker background on hover */
+    color: pink; /* White text on hover */
+    border-color: #333; /* Darker border on hover */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+
+}
