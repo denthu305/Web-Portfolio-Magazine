@@ -213,25 +213,26 @@ i {
 }
 
 .email-link {
-    font-size: 24px; /* Adjust the size of the email icon */
+    font-size: 30px; /* Adjust the size of the email icon */
     color: #0b0b0b; /* Color for the email icon */
     text-decoration: none; /* Remove the underline */
   }
 
 .phone-link {
-font-size: 24px; /* Adjust the size of the phone icon */
+font-size: 30px; /* Adjust the size of the phone icon */
 color: #0b0b0b; /* Color for the phone icon */
 text-decoration: none; /* Remove the underline */
 }
 
 .email-link:hover {
-    color: #3312a1; /* Change color when hovering over the email icon */
-    transform: scale(1.1);
+    color: #db639c; /* Change color when hovering over the email icon */
+    font-size: 36px;
 }
   
   .phone-link:hover {
-    color: #3312a1; /* Change color when hovering over the phone icon */
-    transform: scale(1.1);
+    color: #db639c; /* Change color when hovering over the email icon */
+     /* Change color when hovering over the phone icon */
+    font-size: 36px;
 }
 
 .btt-btn{
@@ -277,3 +278,25 @@ text-decoration: none; /* Remove the underline */
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); /* Stronger shadow */
 
 }
+
+
+#next-btn {
+    font-size: 37px;
+    color: #b8794f;   /* Default text color */
+  }
+  
+  #next-btn:hover {
+    color: #221393; /* Hover color 
+    font-size: 43px;  */
+  }
+
+  #prev-btn {
+    font-size: 37px;
+    color: #b8794f;   /* Default text color */
+  }
+  
+  #prev-btn:hover {
+    color: #221393; /* Hover color 
+    font-size: 46px;  */
+  }
+  
