@@ -154,10 +154,10 @@ const btt = document.querySelector("#btt-btn");
 btt.addEventListener("click", backToTents);
 
 function backToTents(event) {
-// Check if we're already on page 2
+//Check if we're already on page 2
     if (currentLocation > 2) {
         while (currentLocation > 2) {
-           goPrevPage(); // Move one page back until we reach page 2
+          goPrevPage(); // Move one page back until we reach page 2
        }
     }
 }
@@ -193,8 +193,8 @@ function flipThroughPagesQuickly() {
             // If there are more pages to flip, call the function again after a delay
             setTimeout(flipPage, flipInterval);
         } else {
-            // Once all pages have been flipped, close the book and return to the front cover
-            closeBookAndReturnToCover();
+              // Once all pages have been flipped, initiate the backward flip
+              setTimeout(flipBackPages, flipInterval);
         }
     }
 
@@ -202,28 +202,84 @@ function flipThroughPagesQuickly() {
     flipPage();
 }
 
+
+// Function to flip through all pages quickly
+function flipThroughPagesQuickly() {
+    let currentPage = 1; // Start at the first page
+    let totalPages = 6;  // Total number of pages (adjust as necessary)
+    let flipInterval = 100; // Time interval in milliseconds between each flip (adjust for speed)
+
+    function flipPage() {
+        if (currentPage <= totalPages) {
+            // Flip the current page
+            const currentPaper = document.querySelector(`#p${currentPage}`);
+            currentPaper.classList.add("flipped");
+            currentPaper.style.zIndex = currentPage;
+
+            currentPage++; // Move to the next page
+
+            // If there are more pages to flip, call the function again after a delay
+            setTimeout(flipPage, flipInterval);
+        } else {
+            // Once all pages have been flipped, initiate the backward flip
+            closeBook(false);
+            setTimeout(flipBackPages, flipInterval);
+        }
+    }
+
+    // Start flipping pages
+    flipPage();
+}
+
+// Function to flip the pages back (reverse order)
+function flipBackPages() {
+    let currentPage = 6;  // Start from the last page
+    let totalPages = 6;   // Total number of pages (adjust as necessary)
+    let flipInterval = 100; // Time interval in milliseconds between each flip (adjust for speed)
+
+    function flipPageBack() {
+        if (currentPage >= 1) {
+            // Flip the current page back
+            const currentPaper = document.querySelector(`#p${currentPage}`);
+            currentPaper.classList.remove("flipped");
+            currentPaper.style.zIndex = totalPages - currentPage + 1;
+
+            currentPage--; // Move to the previous page
+
+            // If there are more pages to flip back, call the function again after a delay
+            setTimeout(flipPageBack, flipInterval);
+        } else {
+            // After flipping back all pages, close the book (optional)
+            closeBook(true);
+        }
+    }
+
+    // Start flipping pages back
+    flipPageBack();
+}
+
 // Function to close the book and return to the front cover
 function closeBookAndReturnToCover() {
     // Close the book (you can adjust to false to keep it in the "open" position, based on your needs)
     book.style.transform = "translateX(0%)";
     
-    // Reset the page flips (optional, if you want to reset all pages)
-    resetPages();
+
 
     prevBtn.style.transform = "translateX(0px)";
     nextBtn.style.transform = "translateX(0px)";
 }
 
-// Function to reset all pages (remove "flipped" class and reset zIndex)
-function resetPages() {
-    for (let i = 1; i <= 6; i++) {
-        const paper = document.querySelector(`#p${i}`);
-        paper.classList.remove("flipped");
-        paper.style.zIndex = 6 - i; // You can adjust the z-index reset logic if needed
-    }
-}
+//// Function to reset all pages (remove "flipped" class and reset zIndex)
+//function resetPages() {
+    //for (let i = 1; i <= 6; i++) {
+        //const paper = document.querySelector(#p${i});
+        //paper.classList.remove("flipped");
+        //paper.style.zIndex = 6 - i; // You can adjust the z-index reset logic if needed
+    //}
+//}
 
 // Trigger the opening of the book and then flipping when the page has fully loaded
 window.onload = function() {
     openBookAndFlip();
 };
+
